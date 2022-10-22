@@ -1,0 +1,26 @@
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--ff-montserrat);
+  font-size: var(--fs-small);
+  background-color: rgb(var(--clr-dark-purple));
+  color: rgb(var(--clr-white));
+}
