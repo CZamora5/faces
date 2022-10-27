@@ -1,44 +1,93 @@
 .grid {
-  /* &__content {
-    display: grid;
-    grid-template-columns: repeat(2, min(50%, 25rem));
-    gap: 1rem;
-    width: 100%;
-    transform: perspective(120rem) rotateY(-20deg);
-    transform: rotateY(-20deg);
-  } */
   &__content {
-    overflow: hidden;
-  }
-
-  &__row {
     --gap: 1rem;
     --number-of-imgs: 16;
-    --width: calc(var(--number-of-imgs) * 100 / 2);
+    --cards-visible: 1;
+    --card-width: calc(
+      (100% - ((var(--cards-visible) - 1) * var(--gap))) / var(--cards-visible)
+    );
+    --width: calc(
+      (var(--card-width) + var(--gap)) * var(--number-of-imgs) - var(--gap)
+    );
 
-    width: --width;
-    /* position: absolute;
-    top: 0;
-    left:  */
-    display: flex;
-    gap: var(--gap);
-    /* transform: translateX(-50%); */
+    width:100%;
+    overflow: hidden;
 
-    + .grid__row {
-      margin-top: 2rem;
+    @media screen and (min-width: 20rem) {
+      --cards-visible: 2;
     }
 
     @media screen and (min-width: 30rem) {
-      --width: calc(var(--number-of-imgs) * 100 / 3);
+      --cards-visible: 3;
     }
-    
+
     @media screen and (min-width: 40rem) {
-      --width: calc(var(--number-of-imgs) * 100 / 4);
+      --cards-visible: 4;
+    }
+  }
+
+  &__text {
+    font-family: "Oswald", sans-serif;
+    font-size: var(--fs-xl);
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+    width: var(--width);
+    margin-top: 0.5rem;
+    pointer-events: none;
+  }
+
+  &__row {
+    width: var(--width);
+    display: flex;
+    gap: var(--gap);
+    margin-top: 1rem;
+
+    &:first-of-type   {
+      margin-top: 0
+    }
+
+  }
+
+  &__text,
+  &__row {
+    &:nth-of-type(odd) {
+      animation: rotate-odd calc(var(--duration) * 1s) linear infinite;
+    }
+
+    &:nth-of-type(even) {
+      transform: translateX(calc(-50% - var(--gap) / 2));
+      animation: rotate-even calc(var(--duration) * 1s) linear infinite;
+    }
+
+    &:hover {
+      animation-play-state: paused;
     }
   }
 
   &__img {
-    width: var(100% / var(--number-of-imgs));
-    max-width: 25rem;
+    width: calc(
+      (100% - var(--gap) * (var(--number-of-imgs) - 1))  / var(--number-of-imgs)
+    );
+  }
+
+  @keyframes rotate-odd {
+    0%  {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(calc(-50% - var(--gap) / 2));
+    }
+  }
+
+  @keyframes rotate-even {
+    0% {
+      transform: translateX(calc(-50% - var(--gap) / 2));
+    }
+
+    100%  {
+      transform: translateX(0);
+    }
   }
 }
