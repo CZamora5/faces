@@ -1,0 +1,50 @@
+.quote {
+  background-color: rgb(var(--clr-light-gray) / 0.1);
+  margin: 5rem 0;
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__icon {
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    transform: translateY(-50%);
+  }
+
+  &__text {
+    position: relative;
+    padding: 3rem 1rem;
+    font-size: var(--fs-sm);
+    text-align: center;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 50vw;
+      height: 1px;
+      background-color: rgb(var(--clr-light-gray));
+    }
+
+    &::before {
+      left: 0;
+      transform: translateX(-100%);
+    }
+
+    &::after {
+      right: 0;
+      transform: translateX(100%);
+    }
+
+    @media screen and (min-width: 48rem) {
+      font-size: var(--fs-md);
+    }
+
+    @media screen and (min-width: 80rem) {
+      font-size: var(--fs-lg);
+    }
+  }
+}

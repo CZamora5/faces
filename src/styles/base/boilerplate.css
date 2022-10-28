@@ -24,4 +24,5 @@ body {
   font-size: var(--fs-small);
   background-color: rgb(var(--clr-dark-purple));
   color: rgb(var(--clr-white));
+  overflow-x: hidden;
 }
