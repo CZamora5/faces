@@ -1,13 +1,113 @@
 .hero {
   position: relative;
-  min-height: 100vh;
 
   &__content {
+    position: relative;
+    min-height: 100vh;
+
+    &--left {
+      display: flex;
+      min-height: 100vh;
+      padding-block: 3rem;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    &--right {
+      position: absolute;
+      inset: 0;
+      margin: 0;
+      background-image: url("./assets/hero-image.jpg");
+      background-color: rgb(var(--clr-dark-purple));
+      background-blend-mode: color-dodge;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      z-index: -1;
+    }
+
+    @media screen and (min-width: 48rem) {
+      &--left {
+        width: 50%;
+      }
+
+      &--right {
+        left: 30%;
+      }
+    }
+  }
+
+  &__title {
+    position: relative;
+    font-family: "Oswald", sans-serif;
+    font-weight: 300;
+    font-size: var(--fs-2xl);
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -0.5rem;
+      right: -0.5rem;
+      top: 50%;
+      bottom: 0;
+      background-color: rgb(var(--clr-light-gray) / 0.1);
+    }
+
+    @media screen and (min-width: 48rem) {
+      font-size: var(--fs-3xl);
+    }
+
+    @media screen and (min-width: 80rem) {
+      font-size: var(--fs-4xl);
+    }
+  }
+
+  &__text {
+    font-size: var(--fs-sm);
+
+    @media screen and (min-width: 48rem) {
+      font-size: var(--fs-md);
+    }
+
+    @media screen and (min-width: 80rem) {
+      font-size: var(--fs-lg);
+    }
+  }
+
+  &__text,
+  &__title,
+  &__content--right {
+    opacity: 0;
+    transform: translateY(1rem);
+    animation: animate-content 350ms ease-in forwards;
+    animation-delay: 6600ms;
+  }
+
+  &__content--right {
+    animation-delay: 6400ms;
+  }
+
+  &__animation {
     position: fixed;
     inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    pointer-events: none;
+    animation: hide 0ms;
+    animation-delay: 6400ms;
+
+    @keyframes hide {
+      from {
+        display: block;
+      }
+
+      to {
+        display: none;
+      }
+    }
   }
 
   &__figure {
@@ -18,19 +118,35 @@
     &::after {
       content: "faces";
       position: absolute;
-      font-size: var(--fs-5xl);
+      font-size: var(--fs-xl);
       font-weight: 700;
       z-index: -1;
       opacity: 0;
       transform: translateY(1rem) rotateY(-15deg);
       animation: animate-words 5000ms ease-in-out forwards;
       animation-delay: 1400ms;
+
+      @media screen and (min-width: 20rem) {
+        font-size: var(--fs-2xl);
+      }
+
+      @media screen and (min-width: 30rem) {
+        font-size: var(--fs-3xl);
+      }
+
+      @media screen and (min-width: 40rem) {
+        font-size: var(--fs-4xl);
+      }
+
+      @media screen and (min-width: 50rem) {
+        font-size: var(--fs-5xl);
+      }
     }
 
     &::before {
       --factor: -1;
-      top: 0;
-      left: -20%;
+      top: 20%;
+      left: 20%;
       color: rgb(var(--clr-dark-purple));
       text-shadow:
         -1px -1px 0 rgb(var(--clr-light-gray)),
@@ -41,7 +157,7 @@
 
     &::after {
       bottom: 15%;
-      right: 0;
+      right: 20%;
     }
 
     &__left,
@@ -54,7 +170,23 @@
         stroke-dashoffset: var(--path-length);
         animation: animate-faces 5000ms ease-in forwards;
         animation-delay: 500ms;
+
+        @media screen and (min-width: 20rem) {
+          stroke-width: 2;
+        }
       }
+    }
+  }
+
+  @keyframes animate-content {
+    0% {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 

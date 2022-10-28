@@ -46,20 +46,24 @@
     &:first-of-type   {
       margin-top: 0
     }
-
   }
 
-  &__text,
-  &__row {
+  &__text, &__row {
     &:nth-of-type(odd) {
       animation: rotate-odd calc(var(--duration) * 1s) linear infinite;
     }
 
     &:nth-of-type(even) {
-      transform: translateX(calc(-50% - var(--gap) / 2));
+      transform: translateX(calc(-50% - var(--gap, 0) / 2));
       animation: rotate-even calc(var(--duration) * 1s) linear infinite;
     }
+  }
 
+  p.grid__text {
+    animation-direction: alternate;
+  }
+
+  &__row {
     &:hover {
       animation-play-state: paused;
     }
@@ -77,13 +81,13 @@
     }
 
     100% {
-      transform: translateX(calc(-50% - var(--gap) / 2));
+      transform: translateX(calc(-50% - var(--gap, 0) / 2));
     }
   }
 
   @keyframes rotate-even {
     0% {
-      transform: translateX(calc(-50% - var(--gap) / 2));
+      transform: translateX(calc(-50% - var(--gap, 0) / 2));
     }
 
     100%  {
