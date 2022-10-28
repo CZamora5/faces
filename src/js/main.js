@@ -1,6 +1,10 @@
 import './svgDrawer.js';
 import { imgs } from './data.js';
 
+window.addEventListener('beforeunload', () => {
+  window.scrollTo(0, 0);
+});
+
 function appendImages(containers) {
   imgs.forEach((url, index) => {
     const img = document.createElement('img');

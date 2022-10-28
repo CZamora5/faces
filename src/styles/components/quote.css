@@ -8,6 +8,8 @@
 
   &__icon {
     position: absolute;
+    width: var(--fs-3xl);
+    height: var(--fs-3xl);
     left: 1rem;
     top: 0;
     transform: translateY(-50%);
@@ -15,9 +17,10 @@
 
   &__text {
     position: relative;
-    padding: 3rem 1rem;
     font-size: var(--fs-sm);
     text-align: center;
+    hyphens: auto;
+    padding: 3rem 0.5rem;
 
     &::before,
     &::after {
@@ -39,8 +42,13 @@
       transform: translateX(100%);
     }
 
+    @media screen and (min-width: 20rem) {
+      hyphens: unset;
+    }
+
     @media screen and (min-width: 48rem) {
       font-size: var(--fs-md);
+      padding: 3rem 1rem;
     }
 
     @media screen and (min-width: 80rem) {

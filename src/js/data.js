@@ -5,7 +5,7 @@ export const imgs = [
   'https://ozgrozer.github.io/100k-faces/0/9/009011.jpg',
   'https://ozgrozer.github.io/100k-faces/0/3/003373.jpg',
   'https://ozgrozer.github.io/100k-faces/0/1/001916.jpg',
-  'https://ozgrozer.github.io/100k-faces/0/6/006894.jpg ',
+  'https://ozgrozer.github.io/100k-faces/0/6/006894.jpg',
   'https://ozgrozer.github.io/100k-faces/0/2/002173.jpg',
   'https://ozgrozer.github.io/100k-faces/0/4/004014.jpg',
   'https://ozgrozer.github.io/100k-faces/0/4/004299.jpg',
