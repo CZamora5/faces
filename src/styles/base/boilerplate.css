@@ -1,8 +1,21 @@
 html {
+  --display: none;
   --scrollbar-width: 1rem;
+
   font-size: 100%;
   box-sizing: border-box;
-  margin-right: calc(-1 * (100vw - 100%));
+  animation: show-sections 0ms forwards;
+  animation-delay: 6950ms;
+}
+
+@keyframes show-sections {
+  0% {
+    --display: none;
+  }
+
+  100% {
+    --display: initial;
+  }
 }
 
 *,
@@ -24,12 +37,10 @@ p {
 body {
   font-family: var(--ff-montserrat);
   font-size: var(--fs-small);
-  padding-right: var(--scrollbar-width);
   background-color: rgb(var(--clr-dark-purple));
   color: rgb(var(--clr-white));
-  overflow: hidden;
-  animation: scroll 0ms forwards;
-  animation-delay: 6950ms;
+  overflow-x: hidden;
+  overflow-y: scroll;
 
   &::-webkit-scrollbar {
     width: var(--scrollbar-width);
@@ -47,15 +58,5 @@ body {
 }
 
 main {
-  overflow-x: hidden;
-}
-
-@keyframes scroll {
-  0% {
-    overflow-y: hidden;
-  }
-
-  100% {
-    overflow-y: auto;
-  }
+  overflow: hidden;
 }

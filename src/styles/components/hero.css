@@ -42,7 +42,7 @@
 
   &__title {
     position: relative;
-    font-family: "Oswald", sans-serif;
+    font-family: var(--ff-oswald);
     font-weight: 300;
     font-size: var(--fs-2xl);
 

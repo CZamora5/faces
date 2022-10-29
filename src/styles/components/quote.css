@@ -1,8 +1,12 @@
 .quote {
-  background-color: rgb(var(--clr-light-gray) / 0.1);
-  margin: 5rem 0;
+  display: var(--display);
 
   &__wrapper {
+    margin: 5rem 0;
+    background-color: rgb(var(--clr-light-gray) / 0.1);
+  }
+
+  .container {
     position: relative;
   }
 

@@ -1,4 +1,6 @@
 .grid {
+  display: var(--display);
+
   &__content {
     --gap: 1rem;
     --number-of-imgs: 16;
